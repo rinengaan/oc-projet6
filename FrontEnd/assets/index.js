@@ -6,6 +6,8 @@ const galleryElement = document.querySelector('.gallery')
 
 // Variables
 
+let isLogged = ''
+
 // Code
 getWorks().then((data) => {
     displayWorks(data)
@@ -59,4 +61,31 @@ async function createFilters() {
         filters.append(buttonElement)
     })
 }
+
+function updateLink() {
+    const loginLink = document.querySelector('#login-link')
+    isLogged = localStorage.getItem('token')
+    console.log(isLogged)
+    if (isLogged) {
+        loginLink.textContent = 'logout'
+        loginLink.setAttribute('href', '#')
+        console.log('oui')
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            userLogOut()
+        })
+    } else {
+        loginLink.textContent = 'login'
+        loginLink.setAttribute('href', './login.html')
+        console.log('non')
+    }
+}
+
+function userLogOut() {
+    localStorage.clear()
+    window.location.reload()
+    updateLink()
+}
+
 createFilters()
+updateLink()

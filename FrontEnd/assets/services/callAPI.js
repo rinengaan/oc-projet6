@@ -29,3 +29,5 @@ async function getCategories() {
         console.error(`Une erreur s'est produite: ${error.message}`)
     }
 }
+
+

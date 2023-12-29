@@ -12,6 +12,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="./assets/style.css">
     <script src="./assets/services/callAPI.js" defer></script>
+    <script src="./assets/services/login.js" defer></script>
     <title>Login</title>
 </head>
 
@@ -21,9 +22,10 @@
         <nav>
             <ul>
                 <li><a href="#">projets</a></li>
-                <li>contact</li>
-                <li>login</li>
-                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+                <li><a href="#contact">contact</a></li>
+                <li><a class="loginlink" href="./login.html">login</a></li>
+                <li><a href="https://www.instagram.com/"><img src="./assets/icons/instagram.png" alt="Instagram"></a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -35,6 +37,7 @@
             <label for="password">Mot de passe</label>
             <input type="password" name="password" id="password">
             <input type="submit" value="Se connecter">
+            <div id="error"></div>
             <a href="#"><span>Mot de passe oublié</span></a>
         </form>
     </section>
@@ -46,4 +49,5 @@
         </nav>
     </footer>
 </body>
+
 </html>
