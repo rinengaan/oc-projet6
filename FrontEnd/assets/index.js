@@ -3,6 +3,7 @@
 // DOM Elements
 
 const galleryElement = document.querySelector('.gallery')
+const modalGalleryElement = document.querySelector('.modal-gallery')
 
 // Variables
 
@@ -10,13 +11,13 @@ let isLogged = ''
 
 // Code
 getWorks().then((data) => {
-    displayWorks(data)
+    displayWorks(data, false)
 })
 
 // Functions
 
 // Display works in Gallery
-function displayWorks(worksArray) {
+function displayWorks(worksArray, modal) {
     worksArray.forEach((work) => {
         const figureElement = document.createElement('figure')
         const imgElement = document.createElement('img')
@@ -24,11 +25,18 @@ function displayWorks(worksArray) {
         imgElement.setAttribute('alt', work.title)
         const captionElement = document.createElement('figcaption')
         captionElement.textContent = work.title
+        if (!modal) {
+            figureElement.append(imgElement)
+            figureElement.append(captionElement)
 
-        figureElement.append(imgElement)
-        figureElement.append(captionElement)
-
-        galleryElement.append(figureElement)
+            galleryElement.append(figureElement)
+        } else {
+            const trashbin = document.createElement('i')
+            trashbin.classList.add('fa-solid', 'fa-trash-can')
+            figureElement.append(imgElement)
+            figureElement.append(trashbin)
+            modalGalleryElement.append(figureElement)
+        }
     })
 }
 
@@ -42,7 +50,7 @@ async function createFilters() {
     buttonElement.addEventListener('click', (e) => {
         getWorks().then((data) => {
             galleryElement.innerHTML = ''
-            displayWorks(data)
+            displayWorks(data, false)
         })
     })
 
@@ -55,7 +63,7 @@ async function createFilters() {
                     return work.categoryId == cat.id
                 })
                 galleryElement.innerHTML = ''
-                displayWorks(filteredArray)
+                displayWorks(filteredArray, false)
             })
         })
         filters.append(buttonElement)
@@ -89,3 +97,5 @@ function userLogOut() {
 
 createFilters()
 updateLink()
+
+//affichage des images dans la modal//
