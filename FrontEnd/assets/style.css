@@ -127,6 +127,15 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+input {
+    all: unset;
+}
+
+select {
+    border: none;
+}
+
 /** end reset css**/
 body {
     max-width: 1140px;
@@ -247,16 +256,7 @@ li:hover {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type='submit'] {
-    font-family: 'Syne';
-    font-weight: 700;
-    color: white;
-    background-color: #1d6154;
-    margin: 2em auto;
-    width: 180px;
-    text-align: center;
-    border-radius: 60px;
-}
+
 
 footer nav ul {
     display: flex;
@@ -285,7 +285,8 @@ button {
     color: #1d6154;
     cursor: pointer;
 }
-button:hover {
+button:hover,
+.active {
     background-color: #1d6154;
     color: white;
 }
@@ -321,10 +322,6 @@ a {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type='submit'] {
-    cursor: pointer;
-}
-
 #login label {
     margin: 2em 0 1em 0;
 }
@@ -356,8 +353,9 @@ li a:hover {
     border-radius: 10px;
 }
 
-.modal-container {
-    display: flex;
+.modal-gallery-container,
+.modal-add-container {
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -374,6 +372,7 @@ li a:hover {
     text-align: center;
     font-size: 24px;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .modal-content {
@@ -433,7 +432,186 @@ li a:hover {
     cursor: pointer;
 }
 
-.line{
+.line {
     width: 420px;
-    border: 1px solid #B3B3B3;
+    border: 1px solid #b3b3b3;
 }
+
+.back-close {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.back-close i,
+.close i {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.line-button {
+    justify-self: flex-end;
+    margin-top: 40px;
+}
+
+.disabled {
+    background-color: #A7A7A7;
+    cursor: default;
+}
+
+.form-work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.form-label {
+    font-family: 'Work Sans';
+    margin-top: 25px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #3D3D3D;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 420px;
+    height: 51px;
+    padding-left: 20px;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #444444;
+    box-sizing: unset;
+    box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+.add-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 420px;
+    height: 169px;
+    border-radius: 3px;
+    background-color: #E8F1F6;
+}
+
+
+
+.add-img i {
+    font-size: 72px;
+    width: 76px;
+    height: 76px;
+    padding: 9.5px 3.93px 6.88px 3.93px;
+    color: #B9C5CC;
+}
+
+.add-img img {
+    width: 129px;
+    height: 193px;
+    overflow: hidden;
+    object-fit: cover;
+    display: none;
+}
+
+.add-img p {
+    font-family: 'Work Sans';
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+#myfile {
+    display: none;
+}
+
+.add-work,
+.confirm-add,
+.send-form {
+    display: block;
+    width: 237px;
+    height: 36px;
+    border-radius: 60px;
+    background-color: #1D6154;
+    font-family: 'Syne';
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+    margin: 35px auto 15px auto;
+    cursor: pointer;
+}
+
+.add-work:hover,
+.confirm-add:hover,
+.send-form:hover {
+    background-color: #0E2F28;
+}
+
+.disabled {
+    background-color: #A7A7A7;
+    cursor: default;
+}
+
+.button-add {
+    width: 173px;
+    height: 36px;
+    border-radius: 50px;
+    background-color: #CBD6DC;
+    color: #306685;
+    font-family: 'Work Sans';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+.edit-button {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+    color: black;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.edit-button i {
+    padding-right: 10px;
+}
+
+.edit-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background-color: black;
+    color: white;
+    height: 4em;
+}
+
+.edit-banner i {
+    padding-right: 10px;
+}
+

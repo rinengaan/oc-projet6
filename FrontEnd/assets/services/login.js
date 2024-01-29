@@ -8,7 +8,7 @@ function redirectionHomePage(){
     document.location.href="index.html";
 }
 
-
+//fonction de connection
 async function sendFormConnexion(e) {
     e.preventDefault()
     let emailValue = document.querySelector('#email').value
@@ -28,7 +28,7 @@ async function sendFormConnexion(e) {
             if (response.ok) {
                 const data =  await response.json();
                 const token = data.token;
-                localStorage.setItem('token', token);
+                sessionStorage.setItem('token', token);
                 
                 window.location.href='index.html';
             } else {
