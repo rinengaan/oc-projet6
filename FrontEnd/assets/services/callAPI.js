@@ -46,10 +46,6 @@ async function addWork(e, bodyData) {
                 Authorization: `Bearer ${token}`,
             },
             body: bodyData,
-        }).then((res) => {
-            if (res.status === 201) {
-                alert('Travail Ajouté')
-            }
         })
     } catch (error) {
         console.error(`Une erreur s'est produite: ${error.message}`)

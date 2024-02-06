@@ -82,7 +82,7 @@ fileElement.addEventListener('change', function (e) {
     }
 })
 
-//vide les champs du formulaire 
+//vide les champs du formulaire
 function clearSelected() {
     if (selectedFile) {
         imageElement.style.display = 'none'
@@ -99,7 +99,7 @@ function clearSelected() {
     }
 }
 
-// ajout des catégories dans la liste déroulante 
+// ajout des catégories dans la liste déroulante
 const categorySelect = document.getElementById('select-input')
 categorySelect.innerHTML = ''
 getCategories().then((dataCat) => {
@@ -153,19 +153,14 @@ addWorkForm.addEventListener('change', () => {
     }
 })
 
-// gestion du boutton valider 
+// gestion du boutton valider
 const confirmButton = document.querySelector('.confirm-add')
 confirmButton.classList.add('disabled')
 confirmButton.disabled = true
-confirmButton.addEventListener('click', (e) => {
-    addWork(e, formData).then(() => {
-        getData(baseUrl + works, 0).then((data) => {
-            elementGallery.innerHTML = ''
-            createHTML(data, 'Main')
-        })
+confirmButton.addEventListener('click',  (e) => {
+    addWork(e, formData).then(async() => {
+        galleryElement.innerHTML = ''
+        displayWorks( await getWorks(), false)
     })
     clearSelected()
 })
-
-
-
