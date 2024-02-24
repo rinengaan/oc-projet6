@@ -100,7 +100,7 @@ function clearSelected() {
 }
 
 // ajout des catégories dans la liste déroulante
-const categorySelect = document.getElementById('select-input')
+const categorySelect = document.getElementById('category')
 categorySelect.innerHTML = ''
 getCategories().then((dataCat) => {
     // première option vide (ésthétique)

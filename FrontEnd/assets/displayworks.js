@@ -4,6 +4,8 @@ const modalGalleryElement = document.querySelector('.modal-gallery')
 // fonctions//
 // affichage des travaux dans la galerie//
 function displayWorks(worksArray, modal) {
+    /*modal est un booléen, si vrai on affiche des miniatures dans la modal
+    si faux on affiche les images dans la gallerie */
     worksArray.forEach((work) => {
         const figureElement = document.createElement('figure')
         const imgElement = document.createElement('img')
